@@ -1,0 +1,45 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', 'DM Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { @apply bg-transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-gray-300 dark:bg-gray-600 rounded-full; }
+}
+
+@layer components {
+  .card { @apply bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl; }
+  .btn { @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all duration-150 active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed; }
+  .btn-primary { @apply btn bg-violet-600 hover:bg-violet-700 text-white shadow-sm; }
+  .btn-ghost { @apply btn bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700; }
+  .btn-danger { @apply btn bg-transparent hover:bg-red-50 dark:hover:bg-red-900/20 text-red-600 dark:text-red-400 border border-red-200 dark:border-red-800; }
+  .input { @apply w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all focus:ring-2 focus:ring-violet-500/30 focus:border-violet-400 dark:focus:border-violet-500; }
+  .textarea { @apply input resize-none; }
+  .tag { @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium; }
+  .section-content { @apply text-gray-700 dark:text-gray-300 text-sm leading-relaxed; }
+  .section-content p { @apply mb-3; }
+  .section-content strong { @apply text-gray-900 dark:text-gray-100 font-semibold; }
+  .section-content table { @apply w-full text-xs border-collapse my-3 rounded-lg overflow-hidden; }
+  .section-content th { @apply bg-violet-50 dark:bg-violet-900/20 text-violet-700 dark:text-violet-300 font-semibold px-3 py-2 text-left border border-violet-100 dark:border-violet-800; }
+  .section-content td { @apply px-3 py-2 border border-gray-100 dark:border-gray-800 text-gray-600 dark:text-gray-400; }
+  .section-content ul { @apply list-disc list-inside space-y-1 my-3 text-gray-600 dark:text-gray-400; }
+  .section-content li { @apply leading-relaxed; }
+}
+
+/* Animate fade up */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fadeUp 0.3s ease both; }
+
+/* Score ring */
+@keyframes ring-fill { from { stroke-dashoffset: 283; } }
+.ring-animate { animation: ring-fill 1s cubic-bezier(.4,0,.2,1) both; }
